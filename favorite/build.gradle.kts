@@ -10,7 +10,7 @@ apply(from = rootProject.file("shared_dependencies.gradle"))
 
 android {
     namespace = "com.udindev.favorite"
-    compileSdk = 34
+    compileSdk = 33
 
     defaultConfig {
         minSdk = 24

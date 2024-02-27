@@ -10,12 +10,12 @@ apply(from = rootProject.file("shared_dependencies.gradle"))
 
 android {
     namespace = "com.udindev.bbcnews"
-    compileSdk = 34
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.udindev.bbcnews"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
