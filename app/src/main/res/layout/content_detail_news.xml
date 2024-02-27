@@ -14,7 +14,7 @@
         android:id="@+id/tv_published"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="23 Februari 2024"
+        android:text="@string/date"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,8 +31,8 @@
         android:id="@+id/tv_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="8dp"
-        android:text="Ahmad Khusnudin"
+        android:padding="8dp"
+        android:text="@string/like"
         app:layout_constraintStart_toEndOf="@id/title_author"
         app:layout_constraintTop_toTopOf="@id/title_author"
         app:layout_constraintBottom_toBottomOf="@id/title_author"/>
