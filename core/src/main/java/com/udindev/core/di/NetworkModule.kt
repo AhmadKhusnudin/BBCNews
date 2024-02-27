@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.CertificatePinner
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,6 +16,13 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+
+    private const val hostname = "newsapi.org"
+    private val certificatePinner = CertificatePinner.Builder()
+        .add(hostname, "sha256/A+L5NEZLzX9+Tzc2Y5TMTKjdRlaasLKndpTU0hrW6jI=")
+        .add(hostname, "sha256/FEzVOUp4dF3gI0ZVPRJhFbSJVXR+uQmMH65xhs1glH4=")
+        .add(hostname, "sha256/Y9mvm0exBk1JoQ57f9Vm28jKo5lFm/woKcVxrYxu80o=")
+        .build()
 
     @Provides
     @Singleton
@@ -34,6 +42,7 @@ object NetworkModule {
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
             )
             .addInterceptor(interceptor)
+            .certificatePinner(certificatePinner)
             .build()
     }
 

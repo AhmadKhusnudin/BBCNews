@@ -9,11 +9,16 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 class DatabaseModule {
+
+    private val passPhrase = SQLiteDatabase.getBytes("bbcnews".toCharArray())
+    val factory = SupportFactory(passPhrase)
 
     @Provides
     @Singleton
@@ -23,6 +28,7 @@ class DatabaseModule {
             NewsDatabase::class.java,
             "bbc_news.db"
         ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
             .build()
 
     @Provides

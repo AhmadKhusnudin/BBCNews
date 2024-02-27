@@ -24,7 +24,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -50,6 +50,9 @@ dependencies {
     implementation(project(":core"))
 
     implementation("androidx.fragment:fragment-ktx:1.6.1")
+
+    //LEAK CANARY
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.10")
 
     //NAVIGATION
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.2")
