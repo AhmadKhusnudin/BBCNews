@@ -16,11 +16,11 @@ android {
     defaultConfig {
         minSdk = 24
 
-        val properties = Properties()
-        properties.load(project.rootProject.file("local.properties").inputStream())
-
-        buildConfigField("String", "BASE_URL", "\"${properties.getProperty("BASE_URL")}\"")
-        buildConfigField("String", "API_KEY", "\"${properties.getProperty("API_KEY")}\"")
+//        val properties = Properties()
+//        properties.load(project.rootProject.file("local.properties").inputStream())
+//
+//        buildConfigField("String", "BASE_URL", "\"${properties.getProperty("BASE_URL")}\"")
+//        buildConfigField("String", "API_KEY", "\"${properties.getProperty("API_KEY")}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
