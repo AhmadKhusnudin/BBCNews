@@ -1,5 +1,6 @@
 package com.udindev.core.data.source.remote
 
+import com.udindev.core.BuildConfig
 import com.udindev.core.data.source.remote.retrofit.ApiResponse
 import com.udindev.core.data.source.remote.retrofit.ApiService
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +16,7 @@ class RemoteDataSource @Inject constructor(
     suspend fun getListNews() = flow {
         try {
 
-            val response = apiService.getNews("db874e166f4c473e9132d19a45135274").articles
+            val response = apiService.getNews(BuildConfig.API_KEY).articles
 
             if (response.isNotEmpty()) emit(ApiResponse.Success(response)) else ApiResponse.Empty
 

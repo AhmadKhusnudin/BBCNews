@@ -1,5 +1,6 @@
 package com.udindev.core.di
 
+import com.udindev.core.BuildConfig
 import com.udindev.core.data.source.remote.retrofit.ApiService
 import dagger.Module
 import dagger.Provides
@@ -50,7 +51,7 @@ object NetworkModule {
     @Singleton
     fun provideApiService(client: OkHttpClient) : ApiService {
         return Retrofit.Builder()
-            .baseUrl("https://newsapi.org/v2/")
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
